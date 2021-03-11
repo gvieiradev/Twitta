@@ -9,7 +9,7 @@
 		</div>
 		<span class="count-tweets">{{ user.posts.count }}  Tweets</span>
         <div class="back">
-            <img style="width: 30px; height: 30px;" src="{% static 'arrow.png' %}" alt="">
+            <img style="width: 30px; height: 30px;" src="{% static 'imagenes/arrow.png' %}" alt="">
         </div>
     </div>
 {% endblock %}
@@ -36,7 +36,7 @@
 	<p class="username-profile">{{ user.first_name }}</p>
 	<p class="user-profile">@{{ user.username }}</p>
 	<div class="span"><span class="biografia-profile">{{ user.profile.biografia }}</span></div>
-	<img class="imglink" src="/static/link.png" alt="">
+	<img class="imglink" src="{% static 'imagenes/link.png' %}" alt="">
 	<a href="youtube.com" class="red-profile">{{ user.profile.social }}</a>
 	<p class="count-siguiendo">{{ user.profile.following.count }}</p><p class="siguiendo">Siguiendo</p>
 	<p class="count-seguidores">{{ user.profile.followers.count }}</p><p class="seguidores">Seguidores</p>
@@ -63,10 +63,10 @@
             </a>
         </div>
         <div class="post">{{post.content}}</div>
-        <img class="cpost" src="{% static 'comment.png' %}">
-        <img class="rpost" src="{% static 'retweet.png' %}">
-        <img class="hpost" src="{% static 'heart.png' %}">
-        <img class="upost" src="{% static 'upload.png' %}">
+        <img class="cpost" src="{% static 'imagenes/comment.png' %}">
+        <img class="rpost" src="{% static 'imagenes/retweet.png' %}">
+        <img class="hpost" src="{% static 'imagenes/heart.png' %}">
+        <img class="upost" src="{% static 'imagenes/upload.png' %}">
 
     </div>
 </article>

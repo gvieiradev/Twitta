@@ -4,22 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'imagenes/logo.png' %}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'normalize.css' %}">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Twitta</title>
 </head>
 <body>
     <div class="izquierda">
-        <img class="loupe-iz" src="{% static 'loupei.png' %}" alt="">
+        <img class="loupe-iz" src="{% static 'imagenes/loupei.png' %}" alt="">
         <p class="sigue">Sigue lo que te interesa.</p>
-        <img class="users-iz" src="{% static 'users.png' %}" alt="">
+        <img class="users-iz" src="{% static 'imagenes/users.png' %}" alt="">
         <p class="entera">Entérate de qué está hablando la gente.</p>
-        <img class="bubble-iz" src="{% static 'bubble.png' %}" alt="">
+        <img class="bubble-iz" src="{% static 'imagenes/bubble.png' %}" alt="">
         <p class="unete">Únete a la conversación.</p>
     </div>
     <div class="derecha-logout">
-        <img class="logod" src="{% static 'logo.png' %}" alt="">
+        <img class="logod" src="{% static 'imagenes/logo.png' %}" alt="">
         <p class="p-dere">Mira lo que está pasando en el mundo en este momento</p>
         <p class="p-une">Únete a Twitter hoy mismo.</p>
         <a href="{% url 'register' %}" class="link-regis">Registrate</a>

@@ -35,7 +35,7 @@
         <div class="buscador">
             <input style="text-indent:55px;" type="search" class="search" placeholder="Buscar en Twitta">
             <i aria-hidden="true">
-                <img class="loupe" src="{% static 'loupe.png' %}" alt="">
+                <img class="loupe" src="{% static 'imagenes/loupe.png' %}" alt="">
             </i>
         </div>
         {% block trends %}
@@ -43,7 +43,6 @@
             <p class="titulo-trends">Tendencias de</p>
             <p class="titulo-trend">Venezuela</p>
         {% for trend in trends|slice:":5" %}
-        <!-- <span>1 · Tendencia</span> -->
         <a class="trends" href="">{{ trend.name }}</a>
         {% if trend.tweet_volume %}
         <p class="posting">{{ trend.tweet_volume }} tweets</p>

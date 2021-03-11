@@ -4,11 +4,10 @@
 <head>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{% static 'logo.png' %}">
+    <link rel="shortcut icon" href="{% static 'imagenes/logo.png' %}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'normalize.css' %}">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <script src="/static/js/main.js"></script>
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Twitta</title>
 </head>
 <body>
@@ -26,62 +25,62 @@
         
         <button class="logo-b">
             <a href="{% url 'feed' %}" class="a-logo">
-                <img class="logo"  src="{% static 'logo.png' %}" alt="">
+                <img class="logo"  src="{% static 'imagenes/logo.png' %}" alt="">
             </a>
         </button>
 
         
         <button class="home-a">
             <a class="a-home" href="{% url 'feed' %}">
-            <img class="home" src="{% static 'home.png' %}" alt="">
+            <img class="home" src="{% static 'imagenes/home.png' %}" alt="">
             </a>
         </button>
 
         <button class="hashtag-b" >
             <a href="{% url 'trends' %}" class="a-hashtag">
-                <img class="hashtag" src="{% static 'hashtag.png' %}" alt="">
+                <img class="hashtag" src="{% static 'imagenes/hashtag.png' %}" alt="">
             </a>
         </button>
 
         <button class="bell-b" > 
             <a href="{% url 'notificaciones' %}" class="a-bell">
-                <img class="bell" src="{% static 'bell.png' %}" alt="">
+                <img class="bell" src="{% static 'imagenes/bell.png' %}" alt="">
             </a>
         </button>
 
         <button class="message-b">
             <a href="#" class="a-message">
-                <img class="message" src="{% static 'message.png' %}" alt="">
+                <img class="message" src="{% static 'imagenes/message.png' %}" alt="">
             </a>
         </button>
 
         <button class="bookmark-b">
             <a href="#" class="a-book">
-                <img class="bookmark" src="{% static 'bookmark.png' %}" alt="">
+                <img class="bookmark" src="{% static 'imagenes/bookmark.png' %}" alt="">
             </a>
         </button>
 
         <button class="list-b">
             <a href="#" class="a-list">
-                <img class="list" src="{% static 'list.png' %}" alt="">
+                <img class="list" src="{% static 'imagenes/list.png' %}" alt="">
             </a>
         </button>
 
         <button class="user-b" >
             <a href="{% url 'profile' %}" class="a-user">
-                <img class="user" src="{% static 'user.png' %}" alt="">
+                <img class="user" src="{% static 'imagenes/user.png' %}" alt="">
             </a>
         </button>
 
         <button class="mas-b">
             <a href="#modal-opciones" class="a-mas">
-                <img class="mas" src="{% static 'mas.png' %}" alt="">
+                <img class="mas" src="{% static 'imagenes/mas.png' %}" alt="">
             </a>
         </button>
 
         <button class="pluma-b">
             <a href="#" class="a-pluma">
-                <img class="pluma" src="{% static 'pluma.png' %}" alt="">
+                <img class="pluma" src="{% static 'imagenes/pluma.png' %}" alt="">
             </a>
         </button>
 
@@ -99,7 +98,7 @@
         <div class="buscador">
             <input style="text-indent:55px;" type="search" class="search" placeholder="Buscar en Twitta">
             <i aria-hidden="true">
-                <img class="loupe" src="{% static 'loupe.png' %}" alt="">
+                <img class="loupe" src="{% static 'imagenes/loupe.png' %}" alt="">
             </i>
         </div>
         {% block trends %}
@@ -107,7 +106,6 @@
             <p class="titulo-trends">Tendencias de</p>
             <p class="titulo-trend">Venezuela</p>
         {% for trend in trends|slice:":5" %}
-        <!-- <span>1 · Tendencia</span> -->
         <a class="trends" href="">{{ trend.name }}</a>
         {% if trend.tweet_volume %}
         <p class="posting">{{ trend.tweet_volume }} tweets</p>
