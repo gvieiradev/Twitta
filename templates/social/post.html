@@ -1,0 +1,23 @@
+{% extends 'social/layout.html' %}
+{% load static %}
+
+
+{% block coment %}
+    <div class="coment-x">
+        <img class="img-coment" src="{{ user.profile.image.url }}" alt="">
+            <form class="form-posts" action="" method="POST">
+                {% csrf_token %}
+                {{ formulario }}
+        <div class="div-b">
+                    <button style="width: 111px; float: right"  class="twittea" type="submit">Twittea</button>
+                </div>
+        </form>
+
+            <!--<img class="picture" src="{% static 'picture.png' %}" alt="">
+            <img class="gif" src="{% static 'gif.png' %}" alt="">
+            <img class="encuesta" src="{% static 'encuesta.png' %}" alt="">
+            <img class="carita" src="{% static 'carita.png' %}" alt="">
+            <img class="calendario" src="{% static 'calendario.png' %}" alt=""> -->
+    </div>
+{% endblock coment %}
+

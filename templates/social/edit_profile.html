@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'logo.png' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Editar Perfil</title>
+</head>
+<body>
+    <form class="" action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ formulario }}
+        <div class="">
+            <button class="" type="submit">Guardar</button>
+        </div>
+    </form>
+</body>

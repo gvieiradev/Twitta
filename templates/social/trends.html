@@ -1,0 +1,49 @@
+{% extends 'social/layout.html' %}
+{% load static %}
+
+{% block header %}
+    <div class="cabezera">
+        <div class="buscador">
+            <input style="text-indent:55px;" type="search" class="search-trends" placeholder="Buscar en Twitta">
+            <i aria-hidden="true">
+                <img class="loupe-trends" src="{% static 'loupe.png' %}" alt="">
+            </i>
+        </div>
+    </div>
+{% endblock %}
+
+{% block coment %}
+<div class="trend-trends-t">
+    <p class="titulo-trends-t">Tendencias de Venezuela</p>
+{% for trend in trends|slice:":5" %}
+<a class="trends-t" href="">{{ trend.name }}</a>
+{% if trend.tweet_volume %}
+<p class="posting-t">{{ trend.tweet_volume }} tweets</p>
+{% endif %}     
+{% endfor %}
+</div> 
+{% endblock %}
+
+{% block derecha %}
+<div class="derecha">
+    <div class="quien-seguir">
+        <p class="titulo-trends">A quien seguir</p>
+        {% for post in posts|slice:":3" %}
+        
+            <div class="div-img">            
+                <img class="img-trends" src="{{ post.user.profile.image.url }}">
+            </div>
+            <p class="user-trends">{{post.user.first_name}}</p>
+            <a class="user-a-trends" href="{% url 'profile' post.user.username %}">
+                <p class="username-trends">@{{post.user.username}}</p>
+            </a>
+        
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block trends %}
+{% endblock %}
+

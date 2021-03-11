@@ -1,0 +1,29 @@
+{% extends 'social/layout.html' %}
+{% load static %}
+{% load humanize %}
+{% block post %}
+{% include 'social/post.html' %}
+{% for post in posts %}
+
+<article>
+    <div class="article">
+        <img class="imgpost" src="{{ post.user.profile.image.url }}">
+        <div class="user_art">
+            <a class="user-a" href="{% url 'profile' post.user.username %}">
+                <h2 class="namepost">{{post.user.first_name}}</h2>
+            <a class="user-a" href="{% url 'profile' post.user.username %}">
+            <a class="user-a" href="{% url 'profile' post.user.username %}">
+                <h3 class="usernamepost">@{{post.user.username}} · {{post.timestamp| naturaltime}}</h3>
+            </a>
+        </div>
+        <div class="post">{{post.content}}</div>
+        <img class="cpost" src="{% static 'comment.png' %}">
+        <img class="rpost" src="{% static 'retweet.png' %}">
+        <img class="hpost" src="{% static 'heart.png' %}">
+        <img class="upost" src="{% static 'upload.png' %}">
+
+    </div>
+</article>
+{% endfor %}
+    
+{% endblock %}

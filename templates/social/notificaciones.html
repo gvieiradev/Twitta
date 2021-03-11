@@ -1,0 +1,55 @@
+{% extends 'social/layout.html' %}
+{% load static %}
+
+{% block coment %}
+    <div class="noti">
+
+    </div>
+{% endblock %}
+
+{% block post %}
+{% for notificacion in post|slice:":3" %}
+<article>
+    <div class="article">
+        <img class="img-noti" src="{{ notificacion.user.profile.image.url }}">
+        <div class="user_art">
+            <h2 class="name-noti">Tweet reciente de <span class="s-noti">{{notificacion.user.first_name}}</span></h2>
+        </div>
+        <div class="post-noti">{{notificacion.content}}</div>
+    </div>
+</article>
+{% endfor %}
+{% for follows in follow %}
+<article>
+    <div class="article">
+        <div class="user_art">
+            <p class="name-noti"><span class="s-noti">{{follows.from_user}}</span> comenzo a seguir a <span class="s-noti">{{follows.to_user}}</span></p>
+        </div>
+    </div>
+</article>
+{% endfor %}
+{% endblock %}
+
+{% block derecha %}
+	<div class="derecha">
+        <div class="buscador">
+            <input style="text-indent:55px;" type="search" class="search" placeholder="Buscar en Twitta">
+            <i aria-hidden="true">
+                <img class="loupe" src="{% static 'loupe.png' %}" alt="">
+            </i>
+        </div>
+        {% block trends %}
+        <div class="prueba">
+            <p class="titulo-trends">Tendencias de</p>
+            <p class="titulo-trend">Venezuela</p>
+        {% for trend in trends|slice:":5" %}
+        <!-- <span>1 · Tendencia</span> -->
+        <a class="trends" href="">{{ trend.name }}</a>
+        {% if trend.tweet_volume %}
+        <p class="posting">{{ trend.tweet_volume }} tweets</p>
+        {% endif %}     
+        {% endfor %}
+        </div>
+        {% endblock %}
+    </div>
+    {% endblock %}

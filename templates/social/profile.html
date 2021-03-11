@@ -1,0 +1,93 @@
+{% extends 'social/layout.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block header %}
+    <div class="cabezera">
+        <div class="head-profile">
+			<span>{{ user.first_name }}</span>
+		</div>
+		<span class="count-tweets">{{ user.posts.count }}  Tweets</span>
+        <div class="back">
+            <img style="width: 30px; height: 30px;" src="{% static 'arrow.png' %}" alt="">
+        </div>
+    </div>
+{% endblock %}
+
+{% block profile %}
+
+<div class="portada">
+	<img src="">
+    <img class="imgprofile" src="{{ user.profile.image.url }}">
+    {% if request.user.is_authenticated %}
+        {% if user.username != request.user.username %}
+            {% if user not in request.user.profile.following %}
+                <a class="seguir" href="{% url 'follow' user %}">Seguir</a>
+            {% else %}
+                <a class="dejar-seguir" href="{% url 'unfollow' user %}">Dejar de seguir</a>
+            {% endif %}
+        {% else %}
+            <a class="seguir" href="{% url 'edit' user.id %}">Editar Perfil</a>
+        {% endif %}
+    {% endif %}
+</div>
+
+<div class="profile">
+	<p class="username-profile">{{ user.first_name }}</p>
+	<p class="user-profile">@{{ user.username }}</p>
+	<div class="span"><span class="biografia-profile">{{ user.profile.biografia }}</span></div>
+	<img class="imglink" src="/static/link.png" alt="">
+	<a href="youtube.com" class="red-profile">{{ user.profile.social }}</a>
+	<p class="count-siguiendo">{{ user.profile.following.count }}</p><p class="siguiendo">Siguiendo</p>
+	<p class="count-seguidores">{{ user.profile.followers.count }}</p><p class="seguidores">Seguidores</p>
+	<a class="tweets">Tweets</a>
+	<a class="tweets-respuestas">Tweets y respuestas</a>
+	<a class="fotos-videos">Fotos y videos</a>
+	<a class="megusta">Me gusta</a>
+</div>
+
+
+{% endblock %}
+
+
+{% block post %}
+{% for post in posts %}
+
+<article>
+    <div class="article">
+        <img class="imgpost" src="{{ post.user.profile.image.url }}">
+        <div class="user_art">
+            <h2 class="namepost">{{post.user.first_name}}</h2>
+            <a class="user-a" href="{% url 'profile' post.user.username %}">
+                <h3 class="usernamepost">@{{post.user.username}} · {{post.timestamp| naturaltime}}</h3>
+            </a>
+        </div>
+        <div class="post">{{post.content}}</div>
+        <img class="cpost" src="{% static 'comment.png' %}">
+        <img class="rpost" src="{% static 'retweet.png' %}">
+        <img class="hpost" src="{% static 'heart.png' %}">
+        <img class="upost" src="{% static 'upload.png' %}">
+
+    </div>
+</article>
+{% endfor %}
+{% endblock %}
+
+{% block derecha %}
+<div class="derecha">
+    <div class="quien-seguir">
+        <p class="titulo-trends">A quien seguir</p>
+        {% for friend in friends|slice:":3" %}
+        
+            <div class="div-img">            
+                <img class="img-trends" src="{{ friend.user.profile.image.url }}">
+            </div>
+            <p class="user-trends">{{friend.user.first_name}}</p>
+            <a class="user-a-trends" href="{% url 'profile' friend.user.username %}">
+                <p class="username-trends">@{{friend.user.username}}</p>
+            </a>
+        
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
